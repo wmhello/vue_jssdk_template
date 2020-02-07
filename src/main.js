@@ -29,6 +29,7 @@ router.afterEach(async (to, from) => {
 // ios 设备进入页面则进行js-sdk签名
 if (window.__wxjs_is_wkwebview === true) {
   let _url = window.location.href.split('#')[0]
+  Toast(_url);
   getConfig(_url, actions).then(function (res) {
     wx.config(res)
   })
